@@ -1592,6 +1592,7 @@ section {
   border-collapse: collapse;
   margin-top: 20px;
   border-radius: 10px;
+  overflow: hidden;
 }
 
 #miTabla thead {
