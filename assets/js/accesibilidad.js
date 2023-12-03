@@ -22,8 +22,6 @@ let options = {
   labels: labels,
 };
 
-options.textToSpeechLang = "es-MX"; // or any other language
-options.speechToTextLang = "es-MX"; // or any other language
 options.icon = {
   circular: true,
   position: {

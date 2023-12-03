@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<!DOCTYPE html>
-<html lang="es">
-
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -40,6 +37,7 @@
   <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
     crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <!-- =======================================================
   * Template Name: Mentor
   * Updated: Sep 18 2023 with Bootstrap v5.3.2
@@ -50,6 +48,7 @@
 </head>
 
 <body>
+  <a href="ayuda.html" class="btn-flotante">Ayuda</a>
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
@@ -64,33 +63,13 @@
         <ul>
           <li><a href="index.html">Inicio</a></li>
           <li><a href="courses.html">Capacitaciones</a></li>
-          <li><a class="active" href="noticias.html">Noticias</a></li>
+          <li><a href="noticias.html">Noticias</a></li>
           <li><a href="directorio.html">Directorio</a></li>
-          <li class="dropdown">
-            <a href="#">
-              <span>Nosotros</span> <i class="bi bi-chevron-down"></i>
-            </a>
-            <ul>
-              <li><a href="#">Calendario Escolar</a></li>
-              <li><a href="#">Eventos</a></li>
-              <li><a href="#">Actv. Extracurriculares</a></li>
-            </ul>
-          </li>
-          <li class="dropdown">
-            <a href="#">
-              <span>Carreras</span> <i class="bi bi-chevron-down"></i>
-            </a>
-            <ul>
-              <li><a href="#">Grupos</a></li>
-              <li><a href="./becas.html">Becas</a></li>
-            </ul>
-          </li>
+          <li><a class="active" href="becas.html">Becas</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
         <div class="box">
-          <form name="search">
-            <input type="text" class="input" name="txt" onmouseout="this.value = ''; this.blur();">
-          </form>
+          <input type="text" class="input" name="txt" autocomplete="off">
           <i class="fas fa-search"></i>
 
         </div>
@@ -104,6 +83,9 @@
     <div class="breadcrumbs">
       <div class="container">
         <h1>Noticias</h1>
+        <p>En esta sesión encontraras las noticias mas recientes, sobre los eventos o actividades que se llevan dentro o
+          fuera de la universidad </p>
+        <p>entra a cada uno de ellos y si es de tu interés te quitara al link de este, éxito en tu búsqueda.</p>
       </div>
     </div><!-- End Breadcrumbs -->
     <ol class="breadcrumb p-4">
@@ -113,174 +95,337 @@
     </ol>
 
 
-    <body>
-      <!-- Sección de noticias -->
-      <div class="container mt-4">
-        <h2>Noticias de la Universidad</h2> <br>
-        <div class="row">
 
-          <!-- Modal -->
-          <div class="modal fade" id="noticiaModal" tabindex="-1" aria-labelledby="noticiaModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="noticiaModalLabel">Título de la noticia</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <p id="modalContent"></p>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                </div>
+    <!-- Sección de noticias -->
+    <div class="container mt-4" id="portada">
+      <div class="row">
+
+        <!-- Modal -->
+        <div class="modal fade" id="noticiaModal" tabindex="-1" aria-labelledby="noticiaModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="noticiaModalLabel">Título de la noticia</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p id="modalContent"></p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
               </div>
             </div>
           </div>
+        </div>
 
-          <!-- Carrusel de noticias -->
-          <div id="carouselNoticias" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="./assets/img/noticia1.jpeg" class="d-block w-100" alt="Noticia 1">
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>ÁGUILAS CON CORAZÓN EN ACCIÓN PINTANDO SONRISAS</h5>
-                  <button class="float modern-btn">
-                    <a href="#" data-toggle="modal" data-target="#noticiaModal"
-                      onclick="mostrarContenido('Aguilas con corazon', 'El pasado 9 de noviembre acudimos al Refugio Temporal perteneciente a la PGR, en compañía de alumnas y alumnos de las carreras de Diseño Digital y Procesos Industriales, acompañados por los docentes a cargo, adscritos a la subdirección de Formación Integral, Dulce Deanda y Diego Mejía. Llevamos a cabo diversas actividades con los menores y mujeres del lugar, comenzamos con una divertida presentación en la que participamos todos los asistentes entonamos divertidas canciones, dibujamos, realizamos actividad física y a las y los pequeños se les pintaron sus caritas con temas divertidos. Compartimos un delicioso pastel y cantamos las mañanitas a las y los cumpleañeros del mes, y finalmente, repartimos lo donado por los grupos participantes a cada niño, niña y mujer en el albergue quienes agradecieron por el apoyo brindado y sobre todo por el momento agradable que pasamos juntos.')">
-                      Leer más
-                    </a>
-                  </button>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <img src="./assets/img/imagen2.jpeg" class="d-block w-100" alt="Noticia 2">
-                <div class="carousel-caption d-none d-md-block">
-                  <h5> RALLY RECREATIVO POR EL DÍA MUNDIAL CONTRA LA OBESIDAD</h5>
-                  <button class="float modern-btn">
-                    <a href="#" data-toggle="modal" data-target="#noticiaModal"
-                      onclick="mostrarContenido('RALLY RECREATIVO', 'El pasado jueves 9 de noviembre estudiantes y personal de la comunidad UTNG participaron activamente en el RALLY RECREATIVO POR EL DÍA MUNDIAL CONTRA LA OBESIDAD, con el objetivo de crear conciencia sobre llevar un estilo de vida saludable realizando ejercicio de manera regular y cuidar la alimentación.')">
-                      Leer más
-                    </a>
-                  </button>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <img src="./assets/img/noticia3.jpeg" class="d-block w-100" alt="Noticia 2">
-                <div class="carousel-caption d-none d-md-block">
-                  <h5 style="color:#000"> 📄🖊FIRMA DE CONVENIO DE COLABORACIÓN CON LA EMPRESA EDASA CONSULTING </h5>
-
-                </div>
-              </div>
-              <!-- Puedes agregar más noticias al carrusel aquí -->
-            </div>
-            <a class="carousel-control-prev" href="#carouselNoticias" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Anterior</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselNoticias" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Siguiente</span>
-            </a>
-          </div>
-
-          <div class="container mt-4">
-            <br><br>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="card mb-4" style="min-height: 656px;">
-                  <img src="./assets/img/noticia6.jpeg" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Foro de Cambio Climático "Juventud Resiliente</h5>
-                    <p class="card-text">#MiVozEnLaCOP y Foro de Cambio Climático "Juventud Resiliente: Charlas sobre
-                      Cambio Climático"
-                      Sitio web oficial de U-Report: https://mexico.ureport.in/.../cambio_climatico_consulta2023/
-                      Formulario de Registro para asistir al Foro de Cambio Climático "Juventud Resiliente: Charlas
-                      sobre Cambio Climático":
-                      https://docs.google.com/.../1FAIpQLSdZ6sMeBZo7N1.../viewform</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="card mb-4">
-                  <img src="./assets/img/noticia4.jpeg" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">SELECTIVO DE AJEDREZ </h5>
-                    <p class="card-text">El pasado sábado 28 de octubre la UTNG estuvo presente y participó con su
-                      selectivo de Ajedrez en el Circuito Élite Universitario que es una justa deportiva en la que
-                      participan 25 universidades públicas y privadas, organizado por la Comisión del Deporte del Estado
-                      de Guanajuato (CODE), el cual tiene por objetivo impulsar el deporte universitario en Guanajuato.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <!-- Puedes agregar más noticias utilizando el mismo formato -->
-            </div>
-          </div>
-
-          <div>
-
-          </div>
-
-          <div class="col-md-12">
-            <div class="card mb-4">
-              <img src="./assets/img/noticia5.jpeg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">🙌👉Proceso de evaluación con fines de Acreditación para el P.E. T.S.U. en Diseño
-                  Digital área Animación.</h5>
+        <!-- Carrusel de noticias -->
+        <div id="carouselNoticias" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="./assets/img/noticia1.jpeg" class="d-block w-100" alt="Noticia 1">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>ÁGUILAS CON CORAZÓN EN ACCIÓN PINTANDO SONRISAS</h5>
+                <button class="float modern-btn">
+                  <a href="#" data-toggle="modal" data-target="#noticiaModal"
+                    onclick="mostrarContenido('Aguilas con corazon', 'El pasado 9 de noviembre acudimos al Refugio Temporal perteneciente a la PGR, en compañía de alumnas y alumnos de las carreras de Diseño Digital y Procesos Industriales, acompañados por los docentes a cargo, adscritos a la subdirección de Formación Integral, Dulce Deanda y Diego Mejía. Llevamos a cabo diversas actividades con los menores y mujeres del lugar, comenzamos con una divertida presentación en la que participamos todos los asistentes entonamos divertidas canciones, dibujamos, realizamos actividad física y a las y los pequeños se les pintaron sus caritas con temas divertidos. Compartimos un delicioso pastel y cantamos las mañanitas a las y los cumpleañeros del mes, y finalmente, repartimos lo donado por los grupos participantes a cada niño, niña y mujer en el albergue quienes agradecieron por el apoyo brindado y sobre todo por el momento agradable que pasamos juntos.')">
+                    Leer más
+                  </a>
+                </button>
               </div>
             </div>
+            <div class="carousel-item">
+              <img src="./assets/img/imagen2.jpeg" class="d-block w-100" alt="Noticia 2">
+              <div class="carousel-caption d-none d-md-block">
+                <h5> RALLY RECREATIVO POR EL DÍA MUNDIAL CONTRA LA OBESIDAD</h5>
+                <button class="float modern-btn">
+                  <a href="#" data-toggle="modal" data-target="#noticiaModal"
+                    onclick="mostrarContenido('RALLY RECREATIVO', 'El pasado jueves 9 de noviembre estudiantes y personal de la comunidad UTNG participaron activamente en el RALLY RECREATIVO POR EL DÍA MUNDIAL CONTRA LA OBESIDAD, con el objetivo de crear conciencia sobre llevar un estilo de vida saludable realizando ejercicio de manera regular y cuidar la alimentación.')">
+                    Leer más
+                  </a>
+                </button>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="./assets/img/noticia3.jpeg" class="d-block w-100" alt="Noticia 2">
+              <div class="carousel-caption d-none d-md-block">
+                <h5 style="color:#000"> 📄🖊FIRMA DE CONVENIO DE COLABORACIÓN CON LA EMPRESA EDASA CONSULTING </h5>
 
-            <script>
-              function mostrarContenido(titulo, contenido) {
-                document.getElementById('noticiaModalLabel').textContent = titulo;
-                document.getElementById('modalContent').textContent = contenido;
-                // Puedes cambiar la ruta de la imagen correspondiente a cada noticia aquí
-                document.getElementById('modalImage').src = '/ruta_de_la_imagen';
-              }
-            </script>
+              </div>
+            </div>
+            <!-- Puedes agregar más noticias al carrusel aquí -->
+          </div>
+          <a class="carousel-control-prev" href="#carouselNoticias" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Anterior</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselNoticias" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Siguiente</span>
+          </a>
+        </div>
+
+        <div class="container mt-4" id="noticias1">
+          <br><br>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="card mb-4" style="min-height: 656px;">
+                <img src="./assets/img/noticia6.jpeg" class="card-img-top" alt="...">
+                <div class="card-body" style="text-align: justify;">
+                  <h5 class="card-title">Foro de Cambio Climático "Juventud Resiliente</h5>
+                  <p class="card-text">#MiVozEnLaCOP y Foro de Cambio Climático "Juventud Resiliente: Charlas sobre
+                    Cambio Climático"
+                    Sitio web oficial de U-Report: https://mexico.ureport.in/.../cambio_climatico_consulta2023/
+                    Formulario de Registro para asistir al Foro de Cambio Climático "Juventud Resiliente: Charlas
+                    sobre Cambio Climático":
+                    https://docs.google.com/.../1FAIpQLSdZ6sMeBZo7N1.../viewform</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card mb-4">
+                <img src="./assets/img/noticia4.jpeg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">SELECTIVO DE AJEDREZ </h5>
+                  <p class="card-text">El pasado sábado 28 de octubre la UTNG estuvo presente y participó con su
+                    selectivo de Ajedrez en el Circuito Élite Universitario que es una justa deportiva en la que
+                    participan 25 universidades públicas y privadas, organizado por la Comisión del Deporte del Estado
+                    de Guanajuato (CODE), el cual tiene por objetivo impulsar el deporte universitario en Guanajuato.
+                  </p>
+                </div>
+              </div>
+            </div>
             <!-- Puedes agregar más noticias utilizando el mismo formato -->
           </div>
         </div>
-  </main>
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
-    <div class="container d-md-flex py-4">
+        <div>
 
-      <div class="me-md-auto text-center text-md-start">
-        <div class="copyright">
-          &copy; Copyright <strong><span>Mentor</span></strong>. All Rights Reserved
         </div>
-        <div class="credits">
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you purchased the pro version. -->
-          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/mentor-free-education-bootstrap-theme/ -->
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+
+        <div class="col-md-12" id="noticias2">
+          <div class="card mb-4">
+            <img src="./assets/img/noticia5.jpeg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">🙌👉Proceso de evaluación con fines de Acreditación para el P.E. T.S.U. en Diseño
+                Digital área Animación.</h5>
+            </div>
+          </div>
+
+          <script>
+            function mostrarContenido(titulo, contenido) {
+              document.getElementById('noticiaModalLabel').textContent = titulo;
+              document.getElementById('modalContent').textContent = contenido;
+              // Puedes cambiar la ruta de la imagen correspondiente a cada noticia aquí
+              document.getElementById('modalImage').src = '/ruta_de_la_imagen';
+            }
+            function enviarMensaje() {
+              const userInput = document.getElementById("user-input");
+              const chatBox = document.getElementById("chat-box");
+
+              if (userInput.value.trim() !== "") {
+                const mensajeUsuario = userInput.value;
+
+                // Mostrar mensaje del usuario
+                const mensajeUsuarioElemento = document.createElement("div");
+                mensajeUsuarioElemento.classList.add("mensaje-usuario");
+                mensajeUsuarioElemento.textContent = `Tú: ${mensajeUsuario}`;
+                chatBox.appendChild(mensajeUsuarioElemento);
+
+                // Respuesta automática del sistema
+                const mensajeRespuestaElemento = document.createElement("div");
+                mensajeRespuestaElemento.classList.add("mensaje-sistema");
+                mensajeRespuestaElemento.textContent =
+                  "¡Hola! ¿En qué puedo asistirte?";
+                chatBox.appendChild(mensajeRespuestaElemento);
+
+                userInput.value = "";
+                chatBox.scrollTop = chatBox.scrollHeight; // Desplazar hacia abajo para mostrar el último mensaje
+              }
+            }
+
+            function mostrarChat() {
+              const modal = document.getElementById("modal");
+              modal.style.display = "flex";
+            }
+
+            function cerrarChat() {
+              const modal = document.getElementById("modal");
+              modal.style.display = "none";
+            }
+
+            // Cerrar el modal si se hace clic fuera del contenedor del chat
+            window.onclick = function (event) {
+              const modal = document.getElementById("modal");
+              if (event.target === modal) {
+                modal.style.display = "none";
+              }
+            };
+
+
+
+          </script>
+          <style>
+            /* Estilos */
+
+
+            .modal {
+              display: none;
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background-color: rgba(0, 0, 0, 0.5);
+              justify-content: center;
+              align-items: center;
+              z-index: 9999;
+            }
+
+            .chat-container {
+              width: 300px;
+              border: 1px solid #ccc;
+              border-radius: 8px;
+              overflow: hidden;
+              box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .chat-box {
+              height: 200px;
+              overflow-y: scroll;
+              border-bottom: 1px solid #ccc;
+              padding: 10px;
+            }
+
+            .mensaje-usuario {
+              background-color: #dcf8c6;
+              padding: 8px;
+              margin-bottom: 8px;
+              border-radius: 5px;
+              max-width: 70%;
+              word-wrap: break-word;
+            }
+
+            .botonFlotante {
+              position: fixed;
+              bottom: 80px;
+              right: 20px;
+              padding: 10px 20px;
+              background-color: #4CAEA3;
+              color: #fff;
+              border: none;
+              border-radius: 5px;
+              cursor: pointer;
+              z-index: 1000;
+            }
+
+            /* Efecto al pasar el cursor sobre el botón */
+            .botonFlotante:hover {
+              background-color: #2980b9;
+            }
+
+            .mensaje-sistema {
+              background-color: #e3e3e3;
+              padding: 8px;
+              margin-bottom: 8px;
+              border-radius: 5px;
+              max-width: 70%;
+              word-wrap: break-word;
+            }
+
+            #user-input {
+              width: calc(100% - 70px);
+              padding: 8px;
+              margin-right: 5px;
+              border: 1px solid #ccc;
+              border-radius: 5px;
+              outline: none;
+            }
+
+            .botones {
+              display: flex;
+              justify-content: space-between;
+              margin-top: 10px;
+            }
+
+            button {
+              padding: 8px 12px;
+              border: none;
+              border-radius: 5px;
+              cursor: pointer;
+            }
+
+            .boton-cerrar {
+              background-color: #f44336;
+              color: white;
+            }
+
+            .boton-cerrar:hover {
+              background-color: #d32f2f;
+            }
+
+            .boton-enviar {
+              background-color: #4caf50;
+              color: white;
+            }
+
+            .boton-enviar:hover {
+              background-color: #45a049;
+            }
+          </style>
+          <!-- Puedes agregar más noticias utilizando el mismo formato -->
         </div>
       </div>
-      <div class="social-links text-center text-md-right pt-3 pt-md-0">
-        <a href="https://twitter.com/utngdolores?lang=es" class="twitter" target="_blank"><i
-            class="bx bxl-twitter"></i></a>
-        <a href="https://www.facebook.com/p/UTNGDOLORESHIDALGO-100064830062888/" class="facebook" target="_blank"><i
-            class="bx bxl-facebook"></i></a>
-        <a href="https://www.instagram.com/utngdoloreshidalgo_/" class="instagram" target="_blank"><i
-            class="bx bxl-instagram"></i></a>
-        <a href="https://www.linkedin.com/company/universidad-tecnol%C3%B3gica-del-norte-de-guanajuato/"
-          class="linkedin" target="_blank"><i class="bx bxl-linkedin"></i></a>
-      </div>
-    </div>
-  </footer><!-- End Footer -->
 
-  <!-- Bootstrap JS y jQuery (opcional, pero necesario para ciertas funcionalidades de Bootstrap) -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="./assets/js/dist/main.bundle.js"></script>
-  <script src="./assets/js/accesibilidad.js"></script>
+      <button onclick="mostrarChat()" class="botonFlotante">Chat de ayuda</button>
+      <div class="modal" id="modal">
+        <div class="chat-container">
+          <div class="chat-box" id="chat-box">
+            <!-- Aquí se mostrarán los mensajes del chat -->
+          </div>
+          <input type="text" id="user-input" placeholder="Escribe un mensaje..." />
+          <div class="botones">
+            <button class="boton-cerrar" onclick="cerrarChat()">Cerrar</button>
+            <button class="boton-enviar" onclick="enviarMensaje()">Enviar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======= Footer ======= -->
+      <footer id="footer">
+        <div class="container d-md-flex py-4">
+
+          <div class="me-md-auto text-center text-md-start">
+            <div class="copyright">
+              &copy; Copyright <strong><span>Mentor</span></strong>. All Rights Reserved
+            </div>
+            <div class="credits">
+              <!-- All the links in the footer should remain intact. -->
+              <!-- You can delete the links only if you purchased the pro version. -->
+              <!-- Licensing information: https://bootstrapmade.com/license/ -->
+              <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/mentor-free-education-bootstrap-theme/ -->
+              Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+            </div>
+          </div>
+          <div class="social-links text-center text-md-right pt-3 pt-md-0">
+            <a href="https://twitter.com/utngdolores?lang=es" class="twitter" target="_blank"><i
+                class="bx bxl-twitter"></i></a>
+            <a href="https://www.facebook.com/p/UTNGDOLORESHIDALGO-100064830062888/" class="facebook" target="_blank"><i
+                class="bx bxl-facebook"></i></a>
+            <a href="https://www.instagram.com/utngdoloreshidalgo_/" class="instagram" target="_blank"><i
+                class="bx bxl-instagram"></i></a>
+            <a href="https://www.linkedin.com/company/universidad-tecnol%C3%B3gica-del-norte-de-guanajuato/"
+              class="linkedin" target="_blank"><i class="bx bxl-linkedin"></i></a>
+          </div>
+        </div>
+      </footer><!-- End Footer -->
+
+      <!-- Bootstrap JS y jQuery (opcional, pero necesario para ciertas funcionalidades de Bootstrap) -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      <script src="./assets/js/dist/main.bundle.js"></script>
+      <script src="./assets/js/accesibilidad.js"></script>
+      <script src="./assets/js/buscar.js"></script>
 </body>
-
-</html>
