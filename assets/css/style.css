@@ -1591,18 +1591,21 @@ section {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
+  border-radius: 10px;
+}
+
+#miTabla thead {
+  background-color: #5cd2c6;
+  color: #fff;
+  border-radius: 10px 10px 0 0;
 }
 
 #miTabla th,
 #miTabla td {
   border: 1px solid #ddd;
-  padding: 8px;
+  padding: 10px;
   text-align: left;
-}
-
-#miTabla th {
-  background-color: #3498db;
-  color: #fff;
+  border-radius: 0;
 }
 
 #miTabla tbody tr:nth-child(even) {
@@ -1610,7 +1613,18 @@ section {
 }
 
 #miTabla tbody tr:hover {
-  background-color: #e0e0e0;
+  background-color: #ddd;
+}
+
+.dataTables_wrapper .dataTables_filter input {
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 767px) {
+  /* Estilos específicos para dispositivos móviles */
+  #miTabla {
+    overflow-x: auto; /* Permitir desplazamiento horizontal en dispositivos pequeños */
+  }
 }
 
 .float {
@@ -1663,10 +1677,10 @@ section {
   z-index: -1;
 }
 .btn-flotante {
-	position: fixed;
-	bottom: 160px;
-	right: 15px;
-	z-index: 99;
+  position: fixed;
+  bottom: 160px;
+  right: 15px;
+  z-index: 99;
   width: 50px;
   height: 50px;
   display: flex;
@@ -1675,10 +1689,10 @@ section {
   border-radius: 50px;
 }
 .btn-flotante2 {
-	position: fixed;
-	bottom: 95px;
-	right: 15px;
-	z-index: 99;
+  position: fixed;
+  bottom: 95px;
+  right: 15px;
+  z-index: 99;
   width: 50px;
   height: 50px;
   display: flex;
@@ -1687,7 +1701,7 @@ section {
   border-radius: 50px;
 }
 .btn-flotante3 {
-	bottom: 30px;
-	right: 15px;
+  bottom: 30px;
+  right: 15px;
   border-radius: 50px;
 }
