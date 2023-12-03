@@ -140,7 +140,10 @@
 </head>
 
 <body>
-    <a href="ayuda.html" class="btn-flotante">Ayuda</a>
+    <button onclick="location.href='ayuda.html'" class="float modern-btn btn-flotante">
+        <img src="./assets/img/preguntas.png" alt="Comentario icono"
+            style="width: 25px; filter: brightness(0) invert(1);">
+    </button>
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top">
         <div class="container d-flex align-items-center">
@@ -161,7 +164,7 @@
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
                 <div class="box">
-                    <input type="text" class="input" name="txt" autocomplete="off">
+                    <input type="text" class="input" name="txt" autocomplete="off" onmouseout="this.value = ''; this.blur();">
                     <i class="fas fa-search"></i>
 
                 </div>
@@ -271,182 +274,183 @@
 
     <script>
         function mostrarContenido(titulo, contenido) {
-          document.getElementById('noticiaModalLabel').textContent = titulo;
-          document.getElementById('modalContent').textContent = contenido;
-          // Puedes cambiar la ruta de la imagen correspondiente a cada noticia aquí
-          document.getElementById('modalImage').src = '/ruta_de_la_imagen';
+            document.getElementById('noticiaModalLabel').textContent = titulo;
+            document.getElementById('modalContent').textContent = contenido;
+            // Puedes cambiar la ruta de la imagen correspondiente a cada noticia aquí
+            document.getElementById('modalImage').src = '/ruta_de_la_imagen';
         }
         function enviarMensaje() {
-          const userInput = document.getElementById("user-input");
-          const chatBox = document.getElementById("chat-box");
+            const userInput = document.getElementById("user-input");
+            const chatBox = document.getElementById("chat-box");
 
-          if (userInput.value.trim() !== "") {
-            const mensajeUsuario = userInput.value;
+            if (userInput.value.trim() !== "") {
+                const mensajeUsuario = userInput.value;
 
-            // Mostrar mensaje del usuario
-            const mensajeUsuarioElemento = document.createElement("div");
-            mensajeUsuarioElemento.classList.add("mensaje-usuario");
-            mensajeUsuarioElemento.textContent = `Tú: ${mensajeUsuario}`;
-            chatBox.appendChild(mensajeUsuarioElemento);
+                // Mostrar mensaje del usuario
+                const mensajeUsuarioElemento = document.createElement("div");
+                mensajeUsuarioElemento.classList.add("mensaje-usuario");
+                mensajeUsuarioElemento.textContent = `Tú: ${mensajeUsuario}`;
+                chatBox.appendChild(mensajeUsuarioElemento);
 
-            // Respuesta automática del sistema
-            const mensajeRespuestaElemento = document.createElement("div");
-            mensajeRespuestaElemento.classList.add("mensaje-sistema");
-            mensajeRespuestaElemento.textContent =
-              "¡Hola! ¿En qué puedo asistirte?";
-            chatBox.appendChild(mensajeRespuestaElemento);
+                // Respuesta automática del sistema
+                const mensajeRespuestaElemento = document.createElement("div");
+                mensajeRespuestaElemento.classList.add("mensaje-sistema");
+                mensajeRespuestaElemento.textContent =
+                    "¡Hola! ¿En qué puedo asistirte?";
+                chatBox.appendChild(mensajeRespuestaElemento);
 
-            userInput.value = "";
-            chatBox.scrollTop = chatBox.scrollHeight; // Desplazar hacia abajo para mostrar el último mensaje
-          }
+                userInput.value = "";
+                chatBox.scrollTop = chatBox.scrollHeight; // Desplazar hacia abajo para mostrar el último mensaje
+            }
         }
 
         function mostrarChat() {
-          const modal = document.getElementById("modal");
-          modal.style.display = "flex";
+            const modal = document.getElementById("modal");
+            modal.style.display = "flex";
         }
 
         function cerrarChat() {
-          const modal = document.getElementById("modal");
-          modal.style.display = "none";
+            const modal = document.getElementById("modal");
+            modal.style.display = "none";
         }
 
         // Cerrar el modal si se hace clic fuera del contenedor del chat
         window.onclick = function (event) {
-          const modal = document.getElementById("modal");
-          if (event.target === modal) {
-            modal.style.display = "none";
-          }
+            const modal = document.getElementById("modal");
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
         };
 
 
 
-      </script>
-      <style>
+    </script>
+    <style>
         /* Estilos */
 
 
         .modal {
-          display: none;
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background-color: rgba(0, 0, 0, 0.5);
-          justify-content: center;
-          align-items: center;
-          z-index: 9999;
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
         }
 
         .chat-container {
-          width: 300px;
-          border: 1px solid #ccc;
-          border-radius: 8px;
-          overflow: hidden;
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         .chat-box {
-          height: 200px;
-          overflow-y: scroll;
-          border-bottom: 1px solid #ccc;
-          padding: 10px;
+            height: 200px;
+            overflow-y: scroll;
+            border-bottom: 1px solid #ccc;
+            padding: 10px;
         }
 
         .mensaje-usuario {
-          background-color: #dcf8c6;
-          padding: 8px;
-          margin-bottom: 8px;
-          border-radius: 5px;
-          max-width: 70%;
-          word-wrap: break-word;
+            background-color: #dcf8c6;
+            padding: 8px;
+            margin-bottom: 8px;
+            border-radius: 5px;
+            max-width: 70%;
+            word-wrap: break-word;
         }
 
         .botonFlotante {
-          position: fixed;
-          bottom: 80px;
-          right: 20px;
-          padding: 10px 20px;
-          background-color: #4CAEA3;
-          color: #fff;
-          border: none;
-          border-radius: 5px;
-          cursor: pointer;
-          z-index: 1000;
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #4CAEA3;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1000;
         }
 
         /* Efecto al pasar el cursor sobre el botón */
         .botonFlotante:hover {
-          background-color: #2980b9;
+            background-color: #2980b9;
         }
 
         .mensaje-sistema {
-          background-color: #e3e3e3;
-          padding: 8px;
-          margin-bottom: 8px;
-          border-radius: 5px;
-          max-width: 70%;
-          word-wrap: break-word;
+            background-color: #e3e3e3;
+            padding: 8px;
+            margin-bottom: 8px;
+            border-radius: 5px;
+            max-width: 70%;
+            word-wrap: break-word;
         }
 
         #user-input {
-          width: calc(100% - 70px);
-          padding: 8px;
-          margin-right: 5px;
-          border: 1px solid #ccc;
-          border-radius: 5px;
-          outline: none;
+            width: calc(100% - 70px);
+            padding: 8px;
+            margin-right: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
         }
 
         .botones {
-          display: flex;
-          justify-content: space-between;
-          margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
         }
 
         button {
-          padding: 8px 12px;
-          border: none;
-          border-radius: 5px;
-          cursor: pointer;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
 
         .boton-cerrar {
-          background-color: #f44336;
-          color: white;
+            background-color: #f44336;
+            color: white;
         }
 
         .boton-cerrar:hover {
-          background-color: #d32f2f;
+            background-color: #d32f2f;
         }
 
         .boton-enviar {
-          background-color: #4caf50;
-          color: white;
+            background-color: #4caf50;
+            color: white;
         }
 
         .boton-enviar:hover {
-          background-color: #45a049;
+            background-color: #45a049;
         }
-      </style>
-      <!-- Puedes agregar más noticias utilizando el mismo formato -->
+    </style>
+    <!-- Puedes agregar más noticias utilizando el mismo formato -->
     </div>
-  </div>
+    </div>
 
-  <button onclick="mostrarChat()" class="botonFlotante">Chat de ayuda</button>
-  <div class="modal" id="modal">
-    <div class="chat-container">
-      <div class="chat-box" id="chat-box">
-        <!-- Aquí se mostrarán los mensajes del chat -->
-      </div>
-      <input type="text" id="user-input" placeholder="Escribe un mensaje..." />
-      <div class="botones">
-        <button class="boton-cerrar" onclick="cerrarChat()">Cerrar</button>
-        <button class="boton-enviar" onclick="enviarMensaje()">Enviar</button>
-      </div>
+    <button onclick="mostrarChat()" class="float modern-btn btn-flotante2"><img src="./assets/img/chat.png"
+            alt="Comentario icono" style="width: 25px; filter: brightness(0) invert(1);"></button>
+    <div class="modal" id="modal">
+        <div class="chat-container">
+            <div class="chat-box" id="chat-box">
+                <!-- Aquí se mostrarán los mensajes del chat -->
+            </div>
+            <input type="text" id="user-input" placeholder="Escribe un mensaje..." />
+            <div class="botones">
+                <button class="boton-cerrar" onclick="cerrarChat()">Cerrar</button>
+                <button class="boton-enviar" onclick="enviarMensaje()">Enviar</button>
+            </div>
+        </div>
     </div>
-  </div>
     <!-- ======= Footer ======= -->
     <footer id="footer">
         <div class="container d-md-flex py-4">
@@ -475,8 +479,13 @@
             </div>
         </div>
     </footer><!-- End Footer -->
+    <div id="preloader"></div>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center float modern-btn btn-flotante3"><i
+            class="bi bi-arrow-up-short"></i></a>
+
     <script src="./assets/js/dist/main.bundle.js"></script>
     <script src="./assets/js/accesibilidad.js"></script>
+    <script src="assets/js/main.js"></script>
     <script>
         // Variable de control para asegurar que el enlace no se abra más de una vez
         var enlaceAbierto = false;

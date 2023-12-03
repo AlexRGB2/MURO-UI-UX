@@ -48,7 +48,9 @@
 </head>
 
 <body>
-  <a href="ayuda.html" class="btn-flotante">Ayuda</a>
+  <button onclick="location.href='ayuda.html'" class="float modern-btn btn-flotante">
+    <img src="./assets/img/preguntas.png" alt="Comentario icono" style="width: 25px; filter: brightness(0) invert(1);">
+  </button>
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
@@ -69,7 +71,7 @@
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
         <div class="box">
-            <input type="text" class="input" name="txt" autocomplete="off">
+          <input type="text" class="input" name="txt" autocomplete="off" onmouseout="this.value = ''; this.blur();">
           <i class="fas fa-search"></i>
 
         </div>
@@ -552,24 +554,6 @@
       word-wrap: break-word;
     }
 
-    .botonFlotante {
-      position: fixed;
-      bottom: 80px;
-      right: 20px;
-      padding: 10px 20px;
-      background-color: #4CAEA3;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      z-index: 1000;
-    }
-
-    /* Efecto al pasar el cursor sobre el botón */
-    .botonFlotante:hover {
-      background-color: #2980b9;
-    }
-
     .mensaje-sistema {
       background-color: #e3e3e3;
       padding: 8px;
@@ -620,22 +604,23 @@
     }
   </style>
   <!-- Puedes agregar más noticias utilizando el mismo formato -->
-</div>
-</div>
+  </div>
+  </div>
 
-<button onclick="mostrarChat()" class="botonFlotante">Chat de ayuda</button>
-<div class="modal" id="modal">
-<div class="chat-container">
-  <div class="chat-box" id="chat-box">
-    <!-- Aquí se mostrarán los mensajes del chat -->
+  <button onclick="mostrarChat()" class="float modern-btn btn-flotante2"><img src="./assets/img/chat.png"
+      alt="Comentario icono" style="width: 25px; filter: brightness(0) invert(1);"></button>
+  <div class="modal" id="modal">
+    <div class="chat-container">
+      <div class="chat-box" id="chat-box">
+        <!-- Aquí se mostrarán los mensajes del chat -->
+      </div>
+      <input type="text" id="user-input" placeholder="Escribe un mensaje..." />
+      <div class="botones">
+        <button class="boton-cerrar" onclick="cerrarChat()">Cerrar</button>
+        <button class="boton-enviar" onclick="enviarMensaje()">Enviar</button>
+      </div>
+    </div>
   </div>
-  <input type="text" id="user-input" placeholder="Escribe un mensaje..." />
-  <div class="botones">
-    <button class="boton-cerrar" onclick="cerrarChat()">Cerrar</button>
-    <button class="boton-enviar" onclick="enviarMensaje()">Enviar</button>
-  </div>
-</div>
-</div>
   <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="container d-md-flex py-4">
@@ -665,7 +650,7 @@
     </div>
   </footer><!-- End Footer -->
   <div id="preloader"></div>
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center float modern-btn btn-flotante3"><i
       class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
