@@ -1624,7 +1624,14 @@ section {
 @media screen and (max-width: 767px) {
   /* Estilos específicos para dispositivos móviles */
   #miTabla {
-    overflow-x: auto; /* Permitir desplazamiento horizontal en dispositivos pequeños */
+    overflow-x: auto;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  /* Estilos específicos para dispositivos móviles */
+  .box {
+    margin-right: 50px;
   }
 }
 
